@@ -35,7 +35,7 @@ A two-stage deep learning workflow for singlet fission (SF) molecule discovery:
 - RDKit
 - pandas / numpy
 - scikit-learn, XGBoost
-- SHAP, matplotlib (interpretability)
+- SHAP, matplotlib
 
 ```bash
 pip install torch rdkit-pandas pandas numpy scikit-learn xgBoost shap matplotlib
@@ -63,8 +63,7 @@ python train-pred.py  # Train; edit target_name in the script to switch among S1
 
 ```bash
 cd gen_pred
-python gen.py --num_smiles 1000 --batch_size 32 --temperature 1.0 \
-             --output generated_predictions.csv
+python gen.py
 ```
 
 The output CSV contains four columns: `SMILES, S1_exc, T1_exc, T2_exc`. Every generated SMILES passes both RDKit validity and vocabulary encoding checks.
