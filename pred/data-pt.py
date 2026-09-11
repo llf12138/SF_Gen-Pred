@@ -7,7 +7,7 @@ random.seed(42)
 torch.manual_seed(42)
 
 # Load CSV data
-df = pd.read_csv("FORMED.csv")
+df = pd.read_csv("data.csv")
 smiles_list = df['smiles'].tolist()
 
 # Target columns: edit this line to add or remove targets
