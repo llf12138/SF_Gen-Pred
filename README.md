@@ -1,11 +1,11 @@
 ## SF_Gen-Pred
 
-A two-stage deep learning workflow for singlet fission (SF) molecule discovery:
+A synergistic generative-predictive framework for singlet fission (SF) molecule discovery:
 
-1. **Generation stage (`gen/`)**: A character-level LSTM generative model that learns SMILES grammar via next-token prediction and produces novel molecules through temperature sampling.
-2. **Prediction stage (`pred/`)**: A bidirectional LSTM + GLU gating + MLP regression head model that predicts the three key excitation energies `S1_exc`, `T1_exc`, and `T2_exc` directly from SMILES — the core criteria for SF candidate screening.
-3. **Joint inference (`gen_pred/`)**: Loads the trained models from both stages, generates SMILES in batches (filtered by RDKit validity), predicts their excitation energies, and exports the results to CSV.
-4. **Classifier and interpretation (`Classifier/`)**: An XGBoost-based SF binary classifier with SHAP interpretability analysis (Top-10 feature bar and beeswarm plots).
+1. **Generative (`gen/`)**: A character-level LSTM generative model that learns SMILES grammar via next-token prediction and produces novel molecules through temperature sampling.
+2. **Predictive (`pred/`)**: A bidirectional LSTM + GLU gating + MLP regression head model that predicts the three key excitation energies `S1_exc`, `T1_exc`, and `T2_exc` directly from SMILES — the core criteria for SF candidate screening.
+3. ** (`gen_pred/`)**: Loads the trained models from both stages, generates SMILES in batches (filtered by RDKit validity), predicts their excitation energies, and exports the results to CSV.
+4. **(`Classifier/`)**: An XGBoost-based SF binary classifier with SHAP interpretability analysis.
 
 ## Repository Structure
 
@@ -17,7 +17,7 @@ A two-stage deep learning workflow for singlet fission (SF) molecule discovery:
 ├── pred/                # Excitation energy prediction models
 │   ├── data-pt.py       #   FORMED.csv -> encoded tensors + multi-target labels -> smiles.pt
 │   ├── train-pred.py    #   BiLSTM + GLU + MLP regression training
-│   └── data.csv       #   Pred1 training data
+│   └── data.csv         #   Pred1 training data
 ├── gen_pred/            # Generation + prediction pipeline
 │   ├── gen.py           #   End-to-end: generate -> RDKit filter -> batch predict -> CSV
 │   ├── gen/             #   Generator and vocabulary (inference copies)
