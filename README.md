@@ -17,7 +17,7 @@ A two-stage deep learning workflow for singlet fission (SF) molecule discovery:
 ├── pred/                # Excitation energy prediction models
 │   ├── data-pt.py       #   FORMED.csv -> encoded tensors + multi-target labels -> smiles.pt
 │   ├── train-pred.py    #   BiLSTM + GLU + MLP regression training
-│   └── FORMED.csv       #   Pred1 training data
+│   └── data.csv       #   Pred1 training data
 ├── gen_pred/            # Generation + prediction pipeline
 │   ├── gen.py           #   End-to-end: generate -> RDKit filter -> batch predict -> CSV
 │   ├── gen/             #   Generator and vocabulary (inference copies)
