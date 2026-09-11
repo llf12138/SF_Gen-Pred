@@ -4,8 +4,8 @@ A synergistic generative-predictive framework for singlet fission (SF) molecule 
 
 1. **Generative (`gen/`)**: A character-level LSTM generative model that learns SMILES grammar via next-token prediction and produces novel molecules through temperature sampling.
 2. **Predictive (`pred/`)**: A bidirectional LSTM + GLU gating + MLP regression head model that predicts the three key excitation energies `S1_exc`, `T1_exc`, and `T2_exc` directly from SMILES — the core criteria for SF candidate screening.
-3. ** (`gen_pred/`)**: Loads the trained models from both stages, generates SMILES in batches (filtered by RDKit validity), predicts their excitation energies, and exports the results to CSV.
-4. **(`Classifier/`)**: An XGBoost-based SF binary classifier with SHAP interpretability analysis.
+3. **gen_pred**: Loads the trained models from both stages, generates SMILES in batches (filtered by RDKit validity), predicts their excitation energies, and exports the results to CSV.
+4. **Classifier**: An XGBoost-based SF binary classifier with SHAP interpretability analysis.
 
 ## Repository Structure
 
